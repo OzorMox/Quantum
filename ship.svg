@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="375"
+     inkscape:cy="642.64321"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="1151"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 310.71429,335.57647 25.71428,56.78571 -47.85714,-0.35714 z"
+       id="path2989"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/james/ship.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#808080"
+       d="m 299.16071,391.37995 c -5.15625,-0.0558 -9.375,-0.20062 -9.375,-0.32188 0,-0.75041 20.89967,-53.29452 21.11071,-53.07471 0.28202,0.29372 24.24644,53.13722 24.24644,53.46536 0,0.18742 -14.9362,0.15888 -35.98215,-0.0688 z"
+       id="path2991"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/james/ship.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffff00;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306.78571,392.00504 c 0,1.54762 0,3.09524 0,4.64286 0,0.0866 -0.0115,1.05994 0,1.07142 0.0842,0.0842 0.27297,-0.0842 0.35715,0 0.17857,0.17858 -0.17857,0.89286 0,1.07143 0.0842,0.0842 0.27296,-0.0842 0.35714,0 0.0842,0.0842 0.11905,0.35715 0,0.35715 -0.11905,0 0,-0.2381 0,-0.35715 0,-0.11904 -0.0532,-0.25066 0,-0.35714 0.44132,-0.88264 0.35714,0.12328 0.35714,-0.71429 0,-0.83756 -0.0842,0.16836 0.35715,-0.71428 0.0708,-0.14161 -0.073,-0.99842 0,-1.07143 0.0842,-0.0842 0.23809,0 0.35714,0 0.23809,-0.11905 0.56662,-0.13565 0.71428,-0.35714 0.13208,-0.19811 -0.10647,-0.50133 0,-0.71429 0.0532,-0.10648 0.27297,-0.0842 0.35715,0 0.0842,0.0842 -0.0842,0.27297 0,0.35714 0.0842,0.0842 0.27296,-0.0842 0.35714,0 0.0842,0.0842 0,0.2381 0,0.35715 0,0.35714 -0.07,0.72122 0,1.07143 0.0522,0.26103 0.29258,0.45603 0.35714,0.71428 0.0577,0.23099 -0.0753,0.48841 0,0.71429 0.10648,0.31944 0.5637,0.41311 0.71429,0.71428 0.14286,0.28572 -0.14286,0.78572 0,1.07143 0.0753,0.15059 0.28185,0.20656 0.35714,0.35714 0.0532,0.10648 -0.0842,0.27297 0,0.35715 0.0842,0.0842 0.27297,-0.0842 0.35714,0 0.0357,0.0357 -0.16666,1.23809 0.35715,0.71428 0.0842,-0.0842 0,-0.23809 0,-0.35714 0,-0.11905 0,-0.2381 0,-0.35714 0,-0.71429 0,-1.42857 0,-2.14286 0,-0.11905 0,-0.2381 0,-0.35714 0,-0.11905 -0.0532,-0.25067 0,-0.35715 0.0753,-0.15058 0.28185,-0.20655 0.35714,-0.35714 0.0532,-0.10648 0,-0.23809 0,-0.35714 0,-0.43596 -0.13859,-0.82357 0.35714,-1.07143 0.10648,-0.0532 0.2381,0 0.35715,0 0.11904,0 0.25066,-0.0532 0.35714,0 0.15058,0.0753 0.23809,0.2381 0.35714,0.35714 0.11905,0.11905 0.2381,0.2381 0.35714,0.35715 0.11905,0.11904 0.2381,0.23809 0.35715,0.35714 0.11905,0.11905 0.28185,0.20656 0.35714,0.35714 0.0639,0.12776 -0.11034,1.01626 0,1.07143 0.21296,0.10648 0.48841,-0.0753 0.71429,0 1.11475,0.37159 -0.11905,0.2381 0.35714,0.71429 0.0842,0.0842 0.27296,-0.0842 0.35714,0 0.0842,0.0842 0,0.47619 0,0.35714 0,-0.35714 0,-0.71429 0,-1.07143 0,-0.83333 0,-1.66667 0,-2.5 0,-0.11905 0,-0.2381 0,-0.35714 0,-0.11905 -0.0842,-0.27297 0,-0.35715 0.0842,-0.0842 0.27297,0.0842 0.35714,0 0.0144,-0.0144 0,-1.29741 0,-1.42857 0,-0.47619 0,-0.95238 0,-1.42857 0,-0.11905 -0.11904,-0.35714 0,-0.35714 0.11905,0 0,0.23809 0,0.35714"
+       id="path2995"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/james/ship.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
