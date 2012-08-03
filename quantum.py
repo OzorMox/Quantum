@@ -1,4 +1,4 @@
-import sys, pygame
+import sys, pygame, audio
 
 class Quantum:
     def __init__(self):
@@ -10,6 +10,7 @@ class Quantum:
     def load(self):                
         self.ship = pygame.image.load("ship.png")
         self.shiprect = self.ship.get_rect()
+        audio.play()
 
         
     def run(self):
