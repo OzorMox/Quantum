@@ -1,17 +1,18 @@
 import sys, pygame, audio
+import ship
 
 class Quantum:
     def __init__(self):
-        pygame.init()
+        pygame.init()    
+        self.ship = ship.Ship()
         size = width, height = 1024, 768
         self.screen = pygame.display.set_mode(size)
 
 
-    def load(self):                
-        self.ship = pygame.image.load("ship.png")
-        self.shiprect = self.ship.get_rect()
+    def load(self):
+        self.ship.load()
         audio.play()
-
+        
         
     def run(self):
         while 1:
@@ -23,33 +24,20 @@ class Quantum:
         self.updateInput()
 
 
-    def updateInput(self):
-        speed = [1, 1]
-        
+    def updateInput(self):        
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
                 
         key = pygame.key.get_pressed()
         
-        if key[pygame.K_DOWN]:
-            speed = [0, 1]
-            self.shiprect = self.shiprect.move(speed)
-        if key[pygame.K_RIGHT]:
-            speed = [1, 0]
-            self.shiprect = self.shiprect.move(speed)
-        if key[pygame.K_UP]:
-            speed = [0, -1]
-            self.shiprect = self.shiprect.move(speed)
-        if key[pygame.K_LEFT]:
-            speed = [-1, 0]
-            self.shiprect = self.shiprect.move(speed)
+        self.ship.update(key)
 
 
     def draw(self): 
         black = 0, 0, 0
         
         self.screen.fill(black)
-        self.screen.blit(self.ship, self.shiprect)
+        self.ship.draw(self.screen)
         pygame.display.flip()
 
 
