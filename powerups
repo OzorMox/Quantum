@@ -1,0 +1,20 @@
+========
+Powerups
+========
+
++ Faster reload
++ Double fire
++ Triple fire
++ Reverse fire (front and back)
++ Continuous stream fire
++ Spiral
++ Extra life
++ Blow up all other players
++ Shield (can take one shot without exploding)
++ Pass through objects (except bullets)
+
+- Immediately explode
+- Reverse direction
+- Reverse gravity
+- Reverse thrust (pressing up arrow stops thrust)
+- Single bullet
