@@ -7,6 +7,7 @@ class Quantum:
         self.ship = ship.Ship()
         size = width, height = 1024, 768
         self.screen = pygame.display.set_mode(size)
+        self.lastTime = pygame.time.get_ticks()
 
 
     def load(self):
@@ -21,16 +22,21 @@ class Quantum:
 
 
     def update(self):
-        self.updateInput()
+        time = pygame.time.get_ticks()
+        gameTime = (time - self.lastTime) / 1000.0
 
+        self.updateInput(gameTime)
 
-    def updateInput(self):        
+        self.lastTime = pygame.time.get_ticks()
+        
+
+    def updateInput(self, gameTime): 
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
                 
         key = pygame.key.get_pressed()
         
-        self.ship.update(key)
+        self.ship.update(gameTime, key)
 
 
     def draw(self): 

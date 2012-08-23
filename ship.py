@@ -2,7 +2,9 @@ import sys, math, pygame
 
 class Ship:
     def __init__(self):
-        self.MAX_SPEED = 3.0
+        self.MAX_SPEED = 300.0
+        self.positionX = 0.0
+        self.positionY = 0.0
         self.rotation = 0.0
         self.velocityX = 0.0;
         self.velocityY = 0.0;
@@ -13,8 +15,8 @@ class Ship:
         self.rect = self.texture.get_rect()
 
 
-    def update(self, key):
-        thrust = 1.0
+    def update(self, gameTime, key):
+        thrust = 1000.0
         
         if key[pygame.K_RIGHT]:
             self.rotation -= 0.5
@@ -31,7 +33,15 @@ class Ship:
             self.velocityX *= self.MAX_SPEED / speed
             self.velocityY *= self.MAX_SPEED / speed
 
-        self.rect = self.rect.move(-self.velocityX, -self.velocityY)
+        self.velocityX *= gameTime
+        self.velocityY *= gameTime
+
+        self.positionX -= self.velocityX;
+        self.positionY -= self.velocityY;
+
+        self.rect.x = self.positionX
+        self.rect.y = self.positionY
+        
         
         if self.rect.x < 0:
             self.rect.x = 800
