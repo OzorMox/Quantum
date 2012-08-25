@@ -2,12 +2,15 @@ import sys, math, pygame
 
 class Ship:
     def __init__(self):
-        self.MAX_SPEED = 300.0
+        self.THRUST         = 20.0
+        self.MAX_SPEED      = 300.0
+        self.ROTATION_SPEED = 100.0
+        
         self.positionX = 0.0
         self.positionY = 0.0
-        self.rotation = 0.0
-        self.velocityX = 0.0;
-        self.velocityY = 0.0;
+        self.rotation  = 0.0
+        self.velocityX = 0.0
+        self.velocityY = 0.0
 
 
     def load(self):
@@ -23,23 +26,20 @@ class Ship:
             self.velocityX *= self.MAX_SPEED / speed
             self.velocityY *= self.MAX_SPEED / speed
 
-        self.velocityX *= gameTime
-        self.velocityY *= gameTime
-
-        self.positionX -= self.velocityX;
-        self.positionY -= self.velocityY;
+        self.positionX -= self.velocityX * gameTime;
+        self.positionY -= self.velocityY * gameTime;
 
         self.rect.x = self.positionX
         self.rect.y = self.positionY
 
         
     def updateInput(self, gameTime, key):
-        thrust = 1000.0
+        thrust = self.THRUST
         
         if key[pygame.K_RIGHT]:
-            self.rotation -= (100.0 * gameTime)
+            self.rotation -= (self.ROTATION_SPEED * gameTime)
         if key[pygame.K_LEFT]:
-            self.rotation += (100.0 * gameTime)
+            self.rotation += (self.ROTATION_SPEED * gameTime)
         if key[pygame.K_UP]:
             self.velocityX += thrust*math.sin(self.rotation*(math.pi/180.0))
             self.velocityY += thrust*math.cos(self.rotation*(math.pi/180.0))
