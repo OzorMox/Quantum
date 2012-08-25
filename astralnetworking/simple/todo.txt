@@ -1,0 +1,49 @@
+TODO POINTS FOR TOMORROW LAST CHANCE+
++Ditch the exponential interpolation - just use the interpolation we have
++Add a way for server to correct client position when predicting
+    state comes in
+    check the state against our state from that time
+    if it differs more than a certain amount, warp back
+    and replay inputs
+    need to save all state+input at each step
+    delete state+input once it's been oked
++chat log with text entry
++be able to warp mobs
+    (flag a state as a full non-interpolated state)
++mobs have different appearances based on the name entered
++change mob appearance in-world
+document api
+tutorial on how the simple game works
+
+
+having a somewhat synced server time would be nice, especially for client prediction
+    we get players position, know it was at a set time
+    we can check in the past where player was at that time
+    if they differ we can correct
+
+standard protocol for changing client update rate
+	server can be confugired to adjust for lag
+	client can force/request a certain value
+
+our mobs have interpolation on by default - no way to warp them
+
+input is pretty hacked up right now
+	no easy hooks for making your own input system
+	needs finer time tuning within an input message
+    
+input-move-send-getok-repeat
+    at time t0
+    we move right
+    client t0 move right
+    server gets t0
+    server moves to t1
+    client at time t1
+    we move left
+    we get t0 ack
+    its ok
+    we send t1 movement
+    server gets t1
+    moves left
+    sends t1 ack
+    client gets t1 ack
+    still ok

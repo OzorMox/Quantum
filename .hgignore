@@ -1,0 +1,3 @@
+glob:*.pyc
+syntax: glob
+docs_sphinx/_build/*

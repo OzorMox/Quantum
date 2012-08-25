@@ -1,0 +1,47 @@
+Astral is a multiplayer game framework for python. It is designed 
+to either work with mastermind or podsixnet on the backend, with 
+other backends a possibility as well. It should be good enough for a 
+relatively smooth experience over tcp. UDP support is planned too.
+
+Overview
+Astral is a client server architecture. One or more clients connect
+to a single server. The server owns all of the game state and runs
+game logic. Clients are fairly dumb, mostly sending commands,
+and receiving various messages from the server - most of those
+messages being about the state of the world.
+
+Object types:
+
+Player
+    An object representing each connected entity, not tied to any
+particular states. May own actors. May only affect properties of owned
+actors.
+
+Actor
+    A moveable object on the server which is represented by a puppet
+on every connected client.
+
+Puppet
+    Puppet is an object which has an underlying Actor on the server
+which determines how it functions in the world. On the client side, 
+it is merely a simple graphical object with a position. The client doesn't
+know much about it's internals, but different puppet subclasses may
+need to know enough about the internals to handle the display.
+
+Prop
+    A moveable object on the client which doesn't exist on the server
+at all. The server can create these props and control the client-side
+versions of them, but does not track them locally.
+
+
+
+Server actions:
+connect client
+    create client objects
+    send client correct world state
+disconnect client
+    delete client objects from world state, update world state
+arbiter client input
+    approve change, update world state
+    reject change
+update world state
