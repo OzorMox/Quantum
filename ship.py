@@ -2,9 +2,9 @@ import sys, math, pygame
 
 class Ship:
     def __init__(self):
-        self.THRUST         = 20.0
-        self.MAX_SPEED      = 300.0
-        self.ROTATION_SPEED = 100.0
+        self.THRUST         = 35.0
+        self.MAX_SPEED      = 800.0
+        self.ROTATION_SPEED = 300.0
         
         self.positionX = 0.0
         self.positionY = 0.0
@@ -47,8 +47,8 @@ class Ship:
             
     def draw(self, screen, camera):
         texture = pygame.transform.rotate(self.texture, self.rotation)
-        texture.get_rect().center = self.rect.center
-        tempRect = self.rect;
+        tempRect = texture.get_rect()
+        tempRect.center = self.rect.center
         tempRect.x -= (camera.x - (screen.get_width() / 2)) + (self.rect.width / 2)
         tempRect.y -= (camera.y - (screen.get_height() / 2)) + (self.rect.height / 2)
         screen.blit(texture, tempRect)

@@ -37,7 +37,7 @@ class Quantum:
 
             self.draw()
 
-            clock.tick(30)
+            clock.tick(30) #limits framerate to 30 fps
 
     def update(self, gameTime):
         self.ship.update(gameTime)
