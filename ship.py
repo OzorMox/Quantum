@@ -46,6 +46,8 @@ class Ship:
         if key[pygame.K_UP]:
             self.velocityX += thrust*math.sin(self.rotation*(math.pi/180.0))
             self.velocityY += thrust*math.cos(self.rotation*(math.pi/180.0))
+        #if key[pygame.K_SPACE]:
+			#self.fire()
 
             
     def draw(self, screen, camera):
@@ -55,3 +57,7 @@ class Ship:
         tempRect.x -= (camera.x - (screen.get_width() / 2)) + (self.rect.width / 2)
         tempRect.y -= (camera.y - (screen.get_height() / 2)) + (self.rect.height / 2)
         screen.blit(texture, tempRect)
+
+
+	#def fire():
+		#Fire bullet
