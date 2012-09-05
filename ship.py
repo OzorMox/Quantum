@@ -5,6 +5,7 @@ class Ship:
         self.THRUST         = 35.0
         self.MAX_SPEED      = 800.0
         self.ROTATION_SPEED = 300.0
+        self.GRAVITY        = 5.0
         
         self.positionX = 0.0
         self.positionY = 0.0
@@ -25,9 +26,11 @@ class Ship:
         if (speed > self.MAX_SPEED):
             self.velocityX *= self.MAX_SPEED / speed
             self.velocityY *= self.MAX_SPEED / speed
+            
+        self.velocityY -= self.GRAVITY
 
-        self.positionX -= self.velocityX * gameTime;
-        self.positionY -= self.velocityY * gameTime;
+        self.positionX -= self.velocityX * gameTime
+        self.positionY -= self.velocityY * gameTime
 
         self.rect.x = self.positionX
         self.rect.y = self.positionY
