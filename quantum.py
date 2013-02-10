@@ -20,17 +20,19 @@ class Quantum:
         self.ship.load()
         self.camera.setTarget(self.ship)
 
-        audio.play()
+        # audio.play()
         
         
     def run(self):
+        exitGame = False
+        
         clock = pygame.time.Clock()
         
-        while 1:
+        while not exitGame:
             time = pygame.time.get_ticks()
             gameTime = (time - self.lastTime) / 1000.0
 
-            self.updateInput(gameTime)
+            exitGame = self.updateInput(gameTime)
             self.update(gameTime)
               
             self.lastTime = pygame.time.get_ticks()
@@ -39,21 +41,27 @@ class Quantum:
 
             clock.tick(30) #limits framerate to 30 fps
 
+        self.close()
+        
     def update(self, gameTime):
         self.ship.update(gameTime)
         self.camera.update()
 
 
-    def updateInput(self, gameTime): 
+    def updateInput(self, gameTime):
+        exitGame = False
         for event in pygame.event.get():
-            if event.type == pygame.QUIT: sys.exit()
+            if event.type == pygame.QUIT:
+                exitGame = True
                 
         key = pygame.key.get_pressed()
+        
         if key[pygame.K_ESCAPE]:
-            sys.exit()
-
+            exitGame = True
+            
         self.ship.updateInput(gameTime, key);
-
+        
+        return exitGame;
 
     def draw(self): 
         black = 0, 0, 0
@@ -64,6 +72,10 @@ class Quantum:
         self.ship.draw(self.screen, self.camera)
         
         pygame.display.flip()
+
+
+    def close(self):
+        pygame.quit()
 
 
 quantum = Quantum()
