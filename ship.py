@@ -1,21 +1,21 @@
 import sys, math, pygame
 
 class Ship:
-    def __init__(self):
+    def __init__(self, x, y):
         self.THRUST         = 35.0
         self.MAX_SPEED      = 800.0
         self.ROTATION_SPEED = 300.0
         self.GRAVITY        = 5.0
         
-        self.positionX = 0.0
-        self.positionY = 0.0
+        self.positionX = x
+        self.positionY = y
         self.rotation  = 0.0
         self.velocityX = 0.0
         self.velocityY = 0.0
 
 
-    def load(self):
-        self.texture = pygame.image.load("ship.png")
+    def load(self, drawManager):
+        self.texture = drawManager.loadImage("ship.png")
         self.rect = self.texture.get_rect()
 
 
@@ -27,7 +27,7 @@ class Ship:
             self.velocityX *= self.MAX_SPEED / speed
             self.velocityY *= self.MAX_SPEED / speed
             
-        self.velocityY -= self.GRAVITY
+        #self.velocityY -= self.GRAVITY
 
         self.positionX -= self.velocityX * gameTime
         self.positionY -= self.velocityY * gameTime
@@ -50,14 +50,53 @@ class Ship:
 			#self.fire()
 
             
-    def draw(self, screen, camera):
+    def draw(self, drawManager, camera):
         texture = pygame.transform.rotate(self.texture, self.rotation)
         tempRect = texture.get_rect()
         tempRect.center = self.rect.center
-        tempRect.x -= (camera.x - (screen.get_width() / 2)) + (self.rect.width / 2)
-        tempRect.y -= (camera.y - (screen.get_height() / 2)) + (self.rect.height / 2)
-        screen.blit(texture, tempRect)
+        tempRect.x -= (camera.x - (drawManager.getScreenWidth() / 2)) + (self.rect.width / 2)
+        tempRect.y -= (camera.y - (drawManager.getScreenHeight() / 2)) + (self.rect.height / 2)
+        drawManager.draw(texture, tempRect)
 
 
 	#def fire():
 		#Fire bullet
+
+
+    def getX(self):
+        return self.positionX
+
+
+    def setX(self, x):
+        self.positionX = x
+
+
+    def getY(self):
+        return self.positionY
+
+
+    def setY(self, y):
+        self.positionY = y
+
+
+    def getVelocityX(self):
+        return self.velocityX
+
+
+    def setVelocityX(self, x):
+        self.velocityX = x
+
+    
+    def getVelocityY(self):
+        return self.velocityY
+
+
+    def setVelocityY(self, y):
+        self.velocityY = y
+
+
+    def getRotation(self):
+        return self.rotation
+
+    def setRotation(self, rotation):
+        self.rotation = rotation;
