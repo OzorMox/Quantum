@@ -2,10 +2,10 @@ import sys, audio, pygame
 import world, drawmanager, client
 
 class Quantum:
-    def __init__(self):
+    def __init__(self, host, port, playerName):
         self.drawManager = drawmanager.DrawManager()
         self.world = world.World()
-        self.client = client.Client("192.168.0.5", 3000, self.world)
+        self.client = client.Client("192.168.0.5", 3000, playerName, self.world)
         self.lastTime = pygame.time.get_ticks()
 
         
@@ -51,7 +51,13 @@ class Quantum:
     def close(self):
         self.drawManager.close()
 
-
-quantum = Quantum()
-quantum.load()
-quantum.run()
+if len(sys.argv) != 3:
+    print "Usage:", sys.argv[0], "host:port user"
+    print "e.g.", sys.argv[0], "localhost:31425 bob"
+else:
+    host, port = sys.argv[1].split(":")
+    playerName = sys.argv[2]
+    
+    quantum = Quantum(host, port, playerName)
+    quantum.load()
+    quantum.run()

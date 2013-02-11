@@ -27,7 +27,7 @@ class Ship:
             self.velocityX *= self.MAX_SPEED / speed
             self.velocityY *= self.MAX_SPEED / speed
             
-        #self.velocityY -= self.GRAVITY
+        self.velocityY -= self.GRAVITY
 
         self.positionX -= self.velocityX * gameTime
         self.positionY -= self.velocityY * gameTime
@@ -97,6 +97,7 @@ class Ship:
 
     def getRotation(self):
         return self.rotation
+
 
     def setRotation(self, rotation):
         self.rotation = rotation;

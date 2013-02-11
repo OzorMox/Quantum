@@ -3,6 +3,7 @@ import background, camera, ship
 
 class World:    
     def __init__(self):
+        self.paused = True
         self.background = background.Background()
         self.camera = camera.Camera()
         self.enemies = {}
@@ -19,6 +20,9 @@ class World:
         self.ship = ship.Ship(x, y)
         self.ship.load(self.drawManager)
         self.camera.setTarget(self.ship)
+
+        # when we get the player from the server, we unpause :D
+        self.paused = False
     
 
     def addEnemy(self, playerId, x, y):
@@ -26,6 +30,11 @@ class World:
         enemy.load(self.drawManager)
         self.enemies[playerId] = enemy
 
+
+    def removeEnemy(self, playerId):
+        print "Deleting enemy ", playerId
+        del self.enemies[playerId]
+        
 
     def updateEnemy(self, playerId, x, y, velocityX, velocityY, rotation):
         enemy = self.enemies[playerId]
@@ -37,10 +46,11 @@ class World:
 
 
     def update(self, gameTime):
-        self.ship.update(gameTime)
-        for e in self.enemies:
-            self.enemies[e].update(gameTime)
-        self.camera.update()
+        if not self.paused:
+            self.ship.update(gameTime)
+            for e in self.enemies:
+                self.enemies[e].update(gameTime)
+            self.camera.update()
 
 
     def updateInput(self, gameTime):
@@ -53,17 +63,19 @@ class World:
         
         if key[pygame.K_ESCAPE]:
             exitGame = True
-            
-        self.ship.updateInput(gameTime, key);
+
+        if not self.paused:
+            self.ship.updateInput(gameTime, key);
         
         return exitGame;
 
 
     def draw(self, drawManager):
-        self.background.draw(drawManager, self.camera)
-        self.ship.draw(drawManager, self.camera)
-        for e in self.enemies:
-            self.enemies[e].draw(drawManager, self.camera)
+        if not self.paused:
+            self.background.draw(drawManager, self.camera)
+            self.ship.draw(drawManager, self.camera)
+            for e in self.enemies:
+                self.enemies[e].draw(drawManager, self.camera)
 
 
     def getPlayerShip(self):
