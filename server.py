@@ -70,7 +70,7 @@ class GameServer(Server):
                 p.Send(data)
                 
 
-host = "192.168.0.5"
+host = "127.0.0.1"
 port = 3000
 gameServer = GameServer(localaddr=(host, int(port)))
 while True:
