@@ -4,7 +4,7 @@ import world
 
 class Client(ConnectionListener):
     def __init__(self, host, port, playerName, world):
-        self.Connect((host, port))
+        self.Connect((host, int(port)))
         self.playerName = playerName
         self.playerId = -1
         self.world = world
