@@ -3,8 +3,9 @@ from PodSixNet.Connection import connection, ConnectionListener
 import world
 
 class Client(ConnectionListener):
-    def __init__(self, host, port, world):
+    def __init__(self, host, port, playerName, world):
         self.Connect((host, port))
+        self.playerName = playerName
         self.playerId = -1
         self.world = world
         print "Client started"
@@ -15,31 +16,35 @@ class Client(ConnectionListener):
 
 
     def Network_error(self, data):
-        print 'error:', data['error'][1]
+        print "Error:", data["error"][1]
         connection.Close()
 
     
     def Network_disconnected(self, data):
-        print 'Server disconnected'
+        print "Server disconnected"
         exit()
         
 
-    def Network_addplayer(self, data):
-        print "adding player!"
+    def Network_add_player(self, data):
+        print "Adding player"
         
         self.playerId = data["player_id"]
         self.world.addPlayer(400, 400)
         
 
-    def Network_addenemyplayer(self, data):
-        print "adding enemy player!"
+    def Network_add_enemy_player(self, data):
+        print "Adding enemy player"
         
         playerId = data["player_id"]
         self.world.addEnemy(playerId, 500, 400)
 
 
-    def Network_updateplayer(self, data):
-        print data
+    def Network_remove_enemy_player(self, data):
+        playerId = data["player_id"]
+        self.world.removeEnemy(playerId)
+        
+
+    def Network_update_player(self, data):
         playerId = data["player_id"]
         x = data["x"]
         y = data["y"]
@@ -50,14 +55,14 @@ class Client(ConnectionListener):
         self.world.updateEnemy(playerId, x, y, velocityX, velocityY, rotation)
 
 
-    def Network_numplayers(self, data):
+    def Network_number_of_players(self, data):
         print "Total players: ", data["player_count"]
 
 
     def UpdateShip(self):
         if self.playerId > -1:
             playerShip = self.world.getPlayerShip()
-            connection.Send({"action":    "updateplayer",
+            connection.Send({"action":    "update_player",
                              "player_id": self.playerId,
                              "x":         playerShip.getX(),
                              "y":         playerShip.getY(),
