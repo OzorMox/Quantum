@@ -5,7 +5,7 @@ class Quantum:
     def __init__(self, host, port, playerName):
         self.drawManager = drawmanager.DrawManager()
         self.world = world.World()
-        self.client = client.Client("192.168.0.5", 3000, playerName, self.world)
+        self.client = client.Client(host, port, playerName, self.world)
         self.lastTime = pygame.time.get_ticks()
 
         
