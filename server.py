@@ -26,17 +26,17 @@ class GameServer(Server):
     def __init__(self, *args, **kwargs):
         Server.__init__(self, *args, **kwargs)
         self.players = WeakKeyDictionary()
-        print "Server launched"
+        print("Server launched")
 
 
     def Connected(self, channel, addr):
-        print "New connection:", channel
+        print("New connection:", channel)
         self.AddPlayer(channel)
         self.AddEnemyPlayers(channel)
 
         
     def AddPlayer(self, player):
-        print "New player" + str(player.addr)
+        print("New player" + str(player.addr))
         self.players[player] = self.totalPlayers
         self.totalPlayers = self.totalPlayers + 1
         self.SendTotalPlayers()
@@ -54,7 +54,7 @@ class GameServer(Server):
 
 
     def DeletePlayer(self, player):
-        print "Deleting player" + str(player.addr)
+        print("Deleting player" + str(player.addr))
         self.SendToOthers(player,{"action":    "remove_enemy_player",
                                   "player_id": self.players[player]})
         del self.players[player]
@@ -79,8 +79,8 @@ class GameServer(Server):
 
                 
 if len(sys.argv) != 2:
-    print "Usage:", sys.argv[0], "host:port"
-    print "e.g.", sys.argv[0], "localhost:31425"
+    print("Usage:", sys.argv[0], "host:port")
+    print("e.g.", sys.argv[0], "localhost:31425")
 else:
     host, port = sys.argv[1].split(":")
     gameServer = GameServer(localaddr=(host, int(port)))

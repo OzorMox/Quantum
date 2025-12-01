@@ -32,7 +32,7 @@ class World:
 
 
     def removeEnemy(self, playerId):
-        print "Deleting enemy ", playerId
+        print("Deleting enemy ", playerId)
         del self.enemies[playerId]
         
 
