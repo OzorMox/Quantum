@@ -52,8 +52,8 @@ class Quantum:
         self.drawManager.close()
 
 if len(sys.argv) != 3:
-    print "Usage:", sys.argv[0], "host:port user"
-    print "e.g.", sys.argv[0], "localhost:31425 bob"
+    print("Usage:", sys.argv[0], "host:port user")
+    print("e.g.", sys.argv[0], "localhost:31425 bob")
 else:
     host, port = sys.argv[1].split(":")
     playerName = sys.argv[2]

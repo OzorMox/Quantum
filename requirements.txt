@@ -1,0 +1,4 @@
+PodSixNet==0.11.0
+pyasynchat==1.0.4
+pyasyncore==1.0.4
+pygame==2.6.1
